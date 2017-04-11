@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="com.nr.staff">
+<class name="Staff" table="staff" lazy="false">
+
+<id name="stafid" column="stafid"  type="int">
+<generator class="increment"/>
+<!-- <generator class="com.nr.staff.SIDGenerator"/> -->
+</id>
+<property name="sfname" type="string"/>
+<property name="slname" type="string"/>
+ <property name="semail"/>
+<property name="slastworkd" type="string"/>
+<property name="smbl" type="string"/>
+ <property name="squali" type="string"/>
+ <property name="image" type="blob"/>
+ <property name="contenttype"/>
+   <many-to-one name="sadd" class="SAddress" column="siad"/>
+   
+  </class>
+
+</hibernate-mapping>

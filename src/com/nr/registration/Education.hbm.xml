@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="com.nr.registration">
+<class name="Education" table="education" lazy="false">
+
+  <id name="eduid" column="eduid" type="int" >
+  <generator class="increment"/>
+    </id>    
+    
+   <!--  <list name="grade" table="Grade">
+    <key column="eduid"/>
+    <index column="idx"/>
+    <element column="grade"  type="string"/>
+          </list> -->
+     
+    <property name="grade"/>
+     
+    <property name="clgnme"/>
+    <property name="yop"/>
+    <property name="pc"/>
+    
+    <one-to-one name="registration" class="Registration"/> 
+    
+   </class>
+</hibernate-mapping>

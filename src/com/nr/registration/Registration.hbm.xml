@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="com.nr.registration">
+<class name="Registration" table="registration">
+
+<id name="id" column="id" type="string">
+<generator class="com.nr.registration.RegId"/>
+</id>
+<property name="rasname"/>
+<property name="rdob"/>
+<property name="rgender"/>
+<property name="rbg"/> 
+<property name="rmbl"/>
+<property name="remial"/>
+<property name="rquali"/>
+<property name="rstate"/>
+<property name="rfname"/>
+<property name="rfoc"/>
+<property name="rmname"/>
+<property name="rmoc"/>
+<property name="rpmad"/>
+<property name="rpcnno"/>
+ <many-to-one name="redu" class="Education" column="eduid"/>
+ <property name="rpaddr"/>
+ <!-- <property name="rgnm"/>
+ <property name="rgcno"/> -->
+ <property name="rdate"/>
+   <many-to-one name="orf" class="Office" column="ofid"/>
+ <many-to-one name="curs" class="RCourse" column="couid"/> 
+ 
+ </class>
+
+</hibernate-mapping>
+
+
+  
+ 

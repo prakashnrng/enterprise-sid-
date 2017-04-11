@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="com.nr.registration">
+<class name="RCourse" table="rcourse" lazy="false">
+
+  <id name="couid" column="couid" type="int" >
+  <generator class="increment"/>
+    </id>
+    <property name="cnm"/>
+    <property name="cfee" type="double"/>
+    <property name="ctotal" type="double"/>
+    <one-to-one name="creg" class="Registration"/>
+    
+  </class>
+
+</hibernate-mapping>

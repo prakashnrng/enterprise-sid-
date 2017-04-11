@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN" "tiles-config_1_1.dtd" >
+
+<tiles-definitions>
+
+
+
+<definition name="HOMEDEF" path="/WEB-INF/pages/NRLayout.jsp">
+<put name="HEADER" value="/WEB-INF/pages/header.jsp"/>
+<put name="LMENU" value="/WEB-INF/pages/lmenu.jsp"/>
+<put name="BODY" value=""/>
+<put name="FOOTER" value="/WEB-INF/pages/footer.jsp"/>
+</definition>
+
+<definition name="LOGDEF" extends="HOMEDEF">
+ <put name="BODY" value="/WEB-INF/pages/login.jsp"/>
+</definition>
+
+
+
+<definition name="EDITEQFRM" extends="HOMEDEF">
+ <put name="BODY" value="/WEB-INF/pages/editeform.jsp"/>
+</definition>
+
+
+<definition name="ADMEF" extends="HOMEDEF">
+ <put name="BODY" value="/WEB-INF/pages/success.jsp"/>
+</definition>
+
+<definition name="EQEF1" extends="HOMEDEF">
+ 
+ <put name="HEADER" value="/WEB-INF/pages/header.jsp"/>
+ <put name="BODY" value="/WEB-INF/pages/enquiry.jsp"/>
+</definition>
+
+ 
+<definition name="EQEF" extends="HOMEDEF">
+ <put name="BODY" value="/WEB-INF/pages/ceo.jsp"/>
+</definition>
+
+
+<definition name="ERRORDEF" extends="HOMEDEF">
+ <put name="BODY" value="/WEB-INF/pages/error.jsp"/>
+</definition>
+
+<definition name="USERDEF" path="/WEB-INF/pages/USRLayout.jsp">
+ 
+<put name="HEADER" value="/WEB-INF/pages/header.jsp"/>
+<!-- <put name="TOPMENU" value=""/> -->
+<!-- <put name="MENU" value=""/> -->
+  <put name="LMENU" value="/WEB-INF/pages/lmenu.jsp"/> 
+<put name="BODY" value=""/>
+<put name="FOOTER" value="/WEB-INF/pages/footer.jsp"/>
+</definition>
+ 
+
+
+
+<definition name="USRDEF" extends="USERDEF">
+ 
+<put name="HEADER" value="/WEB-INF/pages/header.jsp"/>
+<!-- <put name="MENU" value="/WEB-INF/pages/lym.jsp"/>  -->
+ <put name="BODY" value="/WEB-INF/pages/login.jsp"/>
+ 
+</definition>
+
+
+<definition name="SUCDEF" extends="USERDEF">
+<put name="HEADER" value="/WEB-INF/pages/header.jsp"/>
+<!-- <put name=""></put> -->
+<!-- <put name="TOPMENU" value="/WEB-INF/pages/lheader.jsp"/> -->
+ <!-- <put name="BODY" value="/WEB-INF/pages/ulogin.jsp"/> -->
+ <put name="BODY" value="/WEB-INF/pages/login.jsp"/>
+</definition>
+
+
+<definition name="NEWUDEF" extends="USERDEF">
+ <put name="HEADER" value="/WEB-INF/pages/header.jsp"/>
+ <put name="BODY" value="/WEB-INF/pages/newuser.jsp"/>
+</definition>
+
+<definition name="NEWFDEF" extends="USERDEF">
+<put name="HEADER" value="/WEB-INF/pages/header.jsp"/>
+ <put name="BODY" value="/WEB-INF/pages/sclogin.jsp"/>
+ 
+ </definition>
+ 
+ <definition name="USRDEF1" extends="USERDEF">
+ <put name="HEADER" value="/WEB-INF/pages/header.jsp"/>
+  <put name="BODY" value="/WEB-INF/pages/login.jsp"/>
+ </definition>
+ 
+ 
+ 
+ <definition name="USRDEF2" extends="USERDEF">
+ <!-- <put name="HEADER" value="/WEB-INF/pages/header.jsp"/> -->
+ <put name="HEADER" value="/WEB-INF/pages/header.jsp"/>
+  <put name="BODY" value="/WEB-INF/pages/login1.jsp"/>
+ </definition>
+ 
+ 
+ <definition name="USRDEF3" extends="USERDEF">
+ <put name="BODY" value="/WEB-INF/pages/forgotp.jsp"></put>
+ </definition>
+ 
+ <definition name="USRDEF4" extends="USERDEF">
+ <put name="BODY" value="/WEB-INF/pages/sforgotp.jsp"></put>
+ </definition>
+ 
+ <definition name="USRDEF5" extends="USERDEF">
+ <put name="BODY" value="/WEB-INF/pages/eforgotp.jsp"></put>
+ </definition>
+ 
+ 
+ <definition name="SEARERROR" extends="USERDEF">
+ <put name="HEADER" value="/WEB-INF/pages/header.jsp"/>
+ <put name="BODY" value="/WEB-INF/pages/error.jsp"/>
+ </definition>
+ 
+<!-- 
+<definition name=" " extends="USERDEF">
+ <put name="BODY" value="/WEB-INF/pages/sclogin.jsp"/>
+ 
+</definition>
+ -->
+
+<definition name="ERRORDEF" extends="HOMEDEF">
+ <put name="BODY" value="/WEB-INF/pages/error1.jsp"/>
+</definition>
+
+
+
+<definition name="EREF" extends="HOMEDEF">
+ <put name="BODY" value="/WEB-INF/pages/error.jsp"/>
+</definition>
+
+<definition name="SEARCDAT" extends="HOMEDEF">
+<put name="BODY" value="/WEB-INF/pages/seardate.jsp"/>
+</definition>
+
+<!-- seardate.jsp -->
+<definition name="SEARCDAT1" extends="HOMEDEF">
+<put name="BODY" value="/WEB-INF/pages/exceldownload.jsp"/>
+</definition>
+
+
+<definition name="">
+
+</definition>
+
+
+<definition name="EMAILDEF" extends="HOMEDEF">
+<put name="BODY" value="/WEB-INF/pages/email.jsp"/>
+</definition>
+
+
+
+<definition name="SUCCESSDEF" extends="HOMEDEF">
+ <put name="BODY" value="/WEB-INF/pages/success.jsp"/>
+</definition>
+
+<definition name="SUCCESSDEF1" extends="HOMEDEF">
+<put name="HEADER" value="/WEB-INF/pages/header.jsp"></put>
+ <put name="BODY" value="/WEB-INF/pages/success1.jsp"/>
+</definition>
+
+
+<definition name="UPDTSUCCDEF" extends="HOMEDEF" >
+ <put name="BODY" value="/WEB-INF/pages/success1.jsp"/>
+</definition>
+
+
+
+<definition name="SEARCHDEF" extends="HOMEDEF">
+ <put name="BODY" value="/WEB-INF/pages/search.jsp"/>
+</definition>
+
+
+<definition name="EQFS" extends="HOMEDEF">
+ <put name="BODY" value="/WEB-INF/pages/success.jsp"/>
+</definition>
+
+
+<definition name="HOMEDEF2" path="/WEB-INF/pages/NRLayout3.jsp">
+<put name="HEADER" value="/WEB-INF/pages/header.jsp"/>
+ 
+<put name="BODY" value=""/>
+<put name="FOOTER" value="/WEB-INF/pages/footer.jsp"/>
+</definition>
+
+
+<!-- staff details  -->
+
+<definition name="STAFDEF1" path="/WEB-INF/pages/STLayout1.jsp">
+<put name="HEADER" value="/WEB-INF/pages/header.jsp"/>
+ 
+
+<put name="FOOTER" value="/WEB-INF/pages/footer.jsp"/>
+</definition>
+
+<definition name="STF" extends="STAFDEF1">
+<put name="BODY" value="/WEB-INF/pages/Staff.jsp"/>
+</definition>
+
+
+
+<definition name="STSUCC" extends="STAFDEF1">
+<put name="BODY" value="/WEB-INF/pages/staffsuccs.jsp"/>
+</definition>
+
+ 
+
+<definition name="SEARSTAFF" extends="STAFDEF1">
+<put name="BODY" value="/WEB-INF/pages/staffsear.jsp"/>
+</definition>
+
+
+<definition name="SEARSTAFF1" extends="STAFDEF1">
+<put name="BODY" value="/WEB-INF/pages/staffsear.jsp"/>
+</definition>
+  
+
+<definition name="SEARSFORM" extends="STAFDEF1">
+<put name="HEADER" value="/WEB-INF/pages/stafimage.jsp"/>
+<put name="BODY" value="/WEB-INF/pages/stafseares.jsp"/>
+</definition>
+
+
+
+<definition name="SEARSFORM1" extends="STAFDEF1">
+<put name="BODY" value="/WEB-INF/pages/stafeditsucces.jsp"/>
+
+</definition>
+
+<definition name="RFMDEF" path="/WEB-INF/pages/RgLayout1.jsp">
+<put name="HEADER" value="/WEB-INF/pages/header.jsp"/>
+<put name="BODY" value=""/>
+<put name="FOOTER" value="/WEB-INF/pages/footer.jsp"/>
+</definition>
+
+<definition name="RFMDEF1" extends="RFMDEF">
+ 
+<put name="BODY" value="/WEB-INF/pages/register.jsp"/>
+</definition>
+
+
+<definition name="RFMDEF2" extends="RFMDEF">
+ 
+<put name="BODY" value="/WEB-INF/pages/registersuccess.jsp"/>
+</definition>
+
+<definition name="RFMDEF3" extends="RFMDEF">
+<put name="BODY" value="/WEB-INF/pages/registershow.jsp"></put>
+</definition>
+ 
+ <definition name="RFMDEF4" extends="RFMDEF">
+ <put name="BODY" value="/WEB-INF/pages/registerdisplay.jsp"></put>
+ </definition>
+ 
+ <definition name="RFMDEF5" extends="RFMDEF">
+ <put name="BODY" value="/WEB-INF/pages/registereditsuccess.jsp"></put>
+ </definition>
+ 
+ 
+</tiles-definitions>

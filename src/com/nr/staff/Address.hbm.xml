@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="com.nr.staff">
+<class name="SAddress" table="addr" lazy="false">
+
+<id name="siad" column="siad"  type="int">
+<generator class="increment"/>
+<!-- <generator class="com.nr.staff.SIDGenerator"/> -->
+</id>
+ <property name="city"/>
+ <property name="doorno"/>
+ <property name="pincode" type="long"/>
+ <property name="state"/>
+ <property name="town"/>
+ <property name="saloc"/>
+ <one-to-one name="staff" class="Staff" />   
+  </class>
+
+</hibernate-mapping>

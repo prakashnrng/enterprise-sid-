@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="com.nr.enquiry">
+<class name="EnquiryForm" table="enquiry" lazy="false">
+
+<id name="id" column="id"  type="int">
+<generator class="increment"/>
+</id>
+
+<property name="name" type="string"/>
+<property name="dob" type="string"/>
+<property name="mblno" type="string"/>
+<property name="gender" type="string"/> 
+<property name="email" type="string"/>
+<property name="quali" type="string"/>
+<property name="state" type="string"/>
+<array name="know" table="know">
+<key column="id"/>
+<index column="idx"/>
+<element column="kname" type="string"/>
+</array>
+  
+ <array name="course" table="cours">
+ <key column="id"/>
+ <index column="cid"/>
+ <element column="cname" type="string"/>
+ </array> 
+  
+  <property name="date" type="string"/>
+  
+  <property name="address" type="string"/>
+  <property name="collegeName" type="string"/>
+  <property name="semester" type="string"/>
+  
+  
+  </class>
+
+</hibernate-mapping>

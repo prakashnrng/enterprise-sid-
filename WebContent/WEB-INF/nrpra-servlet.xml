@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:security="http://www.springframework.org/schema/security"
+ 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+						http://www.springframework.org/schema/context
+						http://www.springframework.org/schema/context/spring-context-3.0.xsd
+						  http://www.springframework.org/schema/security
+						http://www.springframework.org/schema/security/spring-security-3.0.xsd
+						">
+
+<context:annotation-config/>
+<context:component-scan base-package="com.nr.spring,com.nr.excel"/>
+ 
+ 
+
+  
+ <!-- <security:http auto-config="true">
+ <security:intercept-url pattern="/director/**" access="ROLE_CEO"/>
+ <security:intercept-url pattern="/home.nr" access="ROLE_DIRECTOR,ROLE_ADMIN,ROLE_STAFF"/>
+ <security:form-login login-page="/login.nr" authentication-failure-url="/login.nr?error=true" always-use-default-target="false"/>
+ <security:logout logout-success-url="/home.nr?loggedout=true"/>
+ </security:http> 
+ 
+ <security:authentication-manager>
+ <security:authentication-provider>
+ <security:user-service>
+ <security:user name="guru" password="guru" authorities="ROLE_DIRECTOR"/>
+ <security:user name="ad" password="ad" authorities="ROLE_ADMIN"/>
+ <security:user name="staff" password="staff" authorities="ROLE_STAFF"/>
+ 
+ </security:user-service>
+ </security:authentication-provider>
+ 
+ </security:authentication-manager>
+ 
+  -->
+ <bean class=" org.springframework.web.servlet.view.tiles.TilesConfigurer">
+<!-- org.springframework.web.servlet.view.tiles.TilesConfigurer -->
+
+ 
+<property name="definitions" >
+
+<list>
+<value>/WEB-INF/tiles.xml</value>
+</list>
+</property>
+ 
+</bean>
+ 
+ <!-- excel download -->
+ 
+     <!--   <bean id="viewResolver1" class="org.springframework.web.servlet.view.ResourceBundleViewResolver">
+  		<property name="order" value="1"/>
+  		<property name="basename" value="views"/>
+	</bean> -->
+ 
+ <!-- <bean id="viewResolver2"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+  		<property name="order" value="2"/>
+		<property name="prefix" value="/WEB-INF/jsp/" />
+		<property name="suffix" value=".jsp" />
+	</bean>   -->
+	
+	 <!-- excel download -->
+	 
+	 <bean class="org.springframework.web.servlet.view.XmlViewResolver">
+	   <property name="location">
+	       <value>/WEB-INF/excel.xml</value>
+	   </property>
+	   <property name="order" value="3" />
+	</bean>
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	
+<bean id="excelben" class="com.nr.excel.ExcelBuilder"/>
+
+<bean id="exname" class="com.nr.excel.ExcelName"/>
+ 
+ <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+ <property name="maxUploadSize" value="800000000"/>
+ </bean>
+ 
+<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+<property name="viewClass" value="org.springframework.web.servlet.view.tiles.TilesJstlView"/>
+
+</bean>
+ 
+ 
+ <bean name="adminform" class="com.nr.admin.Adminform"/>
+ <bean name="enquiryform" class="com.nr.enquiry.EnquiryForm"/>
+
+<bean id="messagesource" class="org.springframework.context.support.ResourceBundleMessageSource">
+<property name="basename" value="messages"/>
+</bean>
+ 
+ <bean name="enquiryvalid" class="com.nr.validate.EnquiryValidate"/>
+ 
+  <bean id="htemp" class="org.springframework.orm.hibernate3.HibernateTemplate" autowire="constructor"/>  
+  <!-- <bean id="ses" class="org.springframework.orm.hibernate3." -->
+ 
+ <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+  <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+  <property name="url" value="jdbc:mysql://localhost:3306/siddb"/>
+   
+  <property name="username" value="root"/>
+  <property name="password" value="2212017"/>
+  </bean>
+  
+ 
+  	
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+	<property name="dataSource" ref="dataSource"/>
+	<property name="hibernateProperties">
+	<map>
+	<entry key="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+	<entry key="hibernate.show_sql" value="true"/>
+	<entry key="hibernate.hbm2ddl.auto" value="update"/>
+	</map>
+	</property>
+	<property name="mappingResources">
+	<list>
+		    
+	<value>com/nr/spring/Enquiry.hbm.xml</value>
+	<value>com/nr/staff/Staff.hbm.xml</value>
+	<value>com/nr/staff/Address.hbm.xml</value>
+	<value>com/nr/user/User.hbm.xml</value>     
+	<value>com/nr/registration/Registration.hbm.xml</value>
+	 <value>com/nr/registration/Education.hbm.xml</value>
+	 <!-- 
+	
+	  <value>com/nr/registration/RCourse.hbm.xml</value>
+	 <value>com/nr/registration/Office.hbm.xml</value>   -->
+	 
+	  	</list>
+	  
+	</property>
+	
+	</bean>
+	 
+	 <!--  staff Deatials -->
+	  
+	  <bean id="sfsr" class="com.nr.staff.service.StaffServiceImpl"/>
+	  <bean id="sfdao" class="com.nr.staff.dao.StaffHibernatDao"/>
+	  <bean id="sff" class="com.nr.staff.Staff"/>
+	  <bean id="sfto" class="com.nr.staff.StaffTo"/>
+	  <bean id="stffv" class="com.nr.staff.validator.StaffValidator"/>
+
+<bean id="sidg" class="com.nr.staff.SIDGenerator"/>
+	 
+	 
+	 <bean id="sv" class="com.nr.validate.SearchValidate"/>
+	 
+ <bean id="enquf" class="com.nr.enquiry.EnquiryForm"/>
+ 
+ <bean id=" ufrgtmail" class="com.nr.user.UserforgotMail"/>
+ 
+ <bean id="es" class="com.nr.enquiry.service.EnquiryFormService"/>
+ 
+ <bean id="ebsh" class="com.nr.enquiry.contact.EnquiryHibernateContact"/>
+ 
+ <bean id="user" class="com.nr.user.User" />
+ <bean id="uto" class="com.nr.user.UserTO"  />
+  <bean id="userva" class="com.nr.user.UserValidate"/>
+  <bean id="addr" class="com.nr.staff.SAddress"/>  
+  <bean id="usf" class="com.nr.user.service.UserServiceForm" />
+   <bean id="usdao" class="com.nr.user.dao.UserHibernateDAO" />
+                                                                                                                                                             
+  <bean id="updv" class="com.nr.validate.UpdateValidate"/>
+ 
+  
+  
+  <!-- 
+  start of java spring mail congiguration
+   -->
+   
+   
+  <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+  <property name="host" value="smtp.gmail.com"/>
+  <property name="port" value="587"/>
+  <property name="username" value="prakashnrng@gmail.com"/>
+  <property name="password" value="ka027396"/>
+  <property name="javaMailProperties">
+  <props>
+  <prop key=" mail.host">smtp.gmail.com</prop>
+  <prop key="mail.port">587</prop>
+  <!-- <prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</prop> -->
+  <prop key="mail.transport.protocol">smtp</prop>
+  <prop key="mail.smtp.port">587</prop>
+  <prop key="mail.smtp.auth">true</prop>
+  <prop key="mail.smtp.starttls.enable">true</prop>
+  
+    <prop key="mail.smtp.sendpartial">true</prop>
+  
+  
+  
+<!--  mail.host=smtp.gmail.com
+mail.port=587
+mail.username=<gmail-username@gmail.com>
+mail.password=<gmail-password>
+mail.transport.protocol=smtp
+mail.smtp.auth=true
+mail.smtp.starttls.enable=true
+mail.from.email=<gmail-username@gmail.com>  -->
+  
+  
+  </props>
+  </property>
+  
+  
+  </bean>
+  
+  
+  
+  
+  
+  
+  
+  <bean name="enqruirymail" class="com.nr.enquiry.EnquiryMail"/>
+  
+  
+  
+  <bean name="regis" class="com.nr.registration.Registration"/>
+  <bean name="registo" class="com.nr.registration.RegistrationTo"/> 
+  <bean name="edu" class="com.nr.registration.Education"/>
+  <bean name="ofc" class="com.nr.registration.Office"/>
+  <bean name="rcou" class="com.nr.registration.RCourse"/>
+  <bean name="registrationvalidate" class="com.nr.registration.RegistrationValidate"/>
+  
+  <bean name="customerid" class="com.nr.registration.RegId"/>
+  
+  <bean name="registrationService1" class="com.nr.registration.service.RegisterationServiceForm"/>
+  <bean name="registrationHibernateDAO1" class="com.nr.registration.dao.RegistrationHibernateDAO"/>
+   
+  
+  <!-- 
+   end of java spring mail congiguration
+   -->
+  
+  
+ <!--  <bean name="enquirydao" class="com.nr.enquiry.dao.EnquiryFormService"/>
+  <bean name="econtac" class="com.nr.enquiry.contact.EnquiryHibernateContact"/>
+  
+ 
+   -->
+
+ 	<!-- 
+	 -->
+ 
+</beans>
