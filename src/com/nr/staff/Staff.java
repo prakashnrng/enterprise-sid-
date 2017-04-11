@@ -8,6 +8,9 @@ import java.sql.Blob;
 
 public class Staff {
 
+	//performing commit using github and this is my second commit
+	
+	
 	//private SIDGenerator stafid;
 	private int stafid;
 
