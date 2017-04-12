@@ -13,6 +13,8 @@ public class Staff {
 	//vishnu has commit the file first time
 	
 	//vishnu has made commit on 12/04/2017
+	//prakash made changes using vishnu workspace
+	
 	
 	//private SIDGenerator stafid;
 	private int stafid;
